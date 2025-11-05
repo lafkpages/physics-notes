@@ -88,7 +88,7 @@
 \renewcommand\thesubsection{\thesection\Alph{subsection}}
 
 % Customise subsection titles to show textbook page number in margin
-\newcommand\mysubsection[2]{\subsection[#1]{#1\protect\columnnote{Textbook page #2}}}
+\newcommand\mysubsection[2]{\subsection[#1]{#1\protect\columnnote{Textbook page \hyperlink{page.\number\numexpr#2+12\relax}{#2}}}}
 
 % document metadata
 \title{Pearson Edexcel International A Level Physics 2 - Notes}
@@ -102,9 +102,8 @@
 
 \setcounter{section}{5}
 \section{Electric and Magnetic Fields}
-\mysubsection{Electromagnetic Effects}{56}
-
 \setcounter{subsection}{2}
+\mysubsection{Electromagnetic Effects}{56}
 
 Gravitational, electric and magnetic fields are all vector fields. The strength of each field is defined as the force per unit something experienced by an object placed in the field:
 
