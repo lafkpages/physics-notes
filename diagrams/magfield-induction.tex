@@ -1,0 +1,38 @@
+% B FIELD horizontal, top view, circle
+\begin{tikzpicture}
+  \def\xmax{3.3}
+  \def\ymax{3.3}
+  \def\NBy{4}
+  \def\NBx{4}
+
+  \pgfmathsetmacro{\xstep}{\xmax/(\NBx-1)}
+  \pgfmathsetmacro{\ystep}{\ymax/(\NBy-1)}
+
+  % Magnetic field
+  \foreach \i [evaluate={\y=(\i-1)*\ymax/(\NBy-1);}] in {1,...,\NBy}{
+    \foreach \i [evaluate={\x=(\i-1)*\xmax/(\NBx-1);}] in {1,...,\NBx}{
+      \pic[rotate=-90] at (\x,\y) {Bin};
+    }
+  }
+  \node[Bcol] at (\xmax,0.88*\ymax) {$\vb{B}$};
+
+  % Conductor: rectangle, positioned so it contains the top center two B field into-the-page symbols
+  \coordinate (BmidL) at (\xstep, \ymax);
+  \coordinate (BmidR) at (2*\xstep, \ymax);
+  \def\padx{0.35}
+  \def\pady{0.45}
+
+  \draw[draw=BFcol, fill=BFcol!15, fill opacity=0.4, line width=1.1pt, rounded corners=2pt]
+  ($(BmidL)+(-\padx,-\pady)$)
+  rectangle
+  ($(BmidR)+(\padx,\pady)$);
+
+  \node[anchor=south, BFcol!80!black]
+  at ($(BmidL)!0.5!(BmidR)+(0,\pady)$) {Conductor};
+
+  % Motion arrow
+  \draw[vector]
+  ($(BmidL)!0.5!(BmidR)$)
+  -- ++(0,-1.1*\ystep)
+  node[below, veccol!80!black] {$\vb{v}$};
+\end{tikzpicture}
