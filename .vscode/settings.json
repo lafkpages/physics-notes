@@ -1,0 +1,6 @@
+{
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "main.log": "main.a*, main.f*, main.o*, main.s*"
+  }
+}
