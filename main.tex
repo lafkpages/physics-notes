@@ -1,0 +1,176 @@
+\documentclass[11pt,twocolumn]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in,marginparwidth=0.8in,marginparsep=0.2in]{geometry}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{marginnote}
+
+% Links
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=cyan,
+}
+
+\usepackage{tikz}
+
+% For \wavyseparator
+\usetikzlibrary{decorations.pathmorphing}
+
+% For magfield diagrams
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.markings}
+\tikzset{>=latex} % for LaTeX arrow head
+
+% For arrow note
+\usetikzlibrary{tikzmark,positioning}
+
+% Command for adding notes in the margin depending on single or double column layout
+\makeatletter
+\newcommand{\columnnote}[1]{%
+  \if@twocolumn
+  \if@firstcolumn
+  \reversemarginpar
+  \marginnote{\small\emph{#1}}%
+  \normalmarginpar
+  \else
+  \normalmarginpar
+  \marginnote{\small\emph{#1}}%
+  \fi
+  \else
+  \marginnote{\small\emph{#1}}%
+  \fi
+}
+\makeatother
+
+\usepackage{physics}
+\colorlet{Bcol}{violet!90}
+\colorlet{BFcol}{red!60!black}
+\colorlet{veccol}{green!45!black}
+\colorlet{Icol}{blue!70!black}
+\tikzstyle{BField}=[->,very thick,Bcol]
+\tikzstyle{current}=[->,Icol] %thick,
+\tikzstyle{force}=[->,very thick,BFcol]
+\tikzstyle{velocity}=[->,very thick,vcol]
+\tikzstyle{charge+}=[very thin,draw=black,top color=red!50,bottom color=red!90!black,shading angle=20,circle,inner sep=0.5]
+\tikzstyle{charge-}=[very thin,draw=black,top color=blue!50,bottom color=blue!80,shading angle=20,circle,inner sep=0.5]
+\tikzstyle{vector}=[->,thick,veccol]
+\tikzset{
+  BFieldLine/.style={thick,Bcol,decoration={markings,mark=at position #1 with {\arrow{latex}}},
+  postaction={decorate}},
+  BFieldLine/.default=0.5,
+  pics/Bin/.style={
+    code={
+      \def\R{0.12}
+      \draw[pic actions,Bcol,line width=0.6] % ,thick
+      (0,0) circle (\R) (-135:.7*\R) -- (45:.7*\R) (-45:.7*\R) -- (135:.7*\R);
+  }},
+}
+
+\newcommand{\wavyseparator}{%
+  \par\vspace{0.5\baselineskip}%
+  \noindent\centerline{\tikz{\draw[decorate, decoration={snake, amplitude=1mm, segment length=10mm}]
+  (0,0) -- (0.8\linewidth,0);}}%
+  \vspace{0.75\baselineskip}\par
+}
+
+% Make subsection couters alphabetic like in the textbook
+\renewcommand\thesubsection{\thesection\Alph{subsection}}
+
+% Customise subsection titles to show textbook page number in margin
+\newcommand\mysubsection[2]{\subsection[#1]{#1\protect\columnnote{Textbook page #2}}}
+
+% document metadata
+\title{Pearson Edexcel International A Level Physics 2 - Notes}
+% \author{Course: \underline{\hspace{5cm}} \quad Instructor: \underline{\hspace{5cm}}}
+\date{\today}
+
+\begin{document}
+% \maketitle
+% \tableofcontents
+\bigskip
+
+\setcounter{section}{5}
+\section{Electric and Magnetic Fields}
+\mysubsection{Electromagnetic Effects}{56}
+
+\setcounter{subsection}{2}
+
+Gravitational, electric and magnetic fields are all vector fields. The strength of each field is defined as the force per unit something experienced by an object placed in the field:
+
+\[
+  \begin{alignedat}{3}
+    \vec g                        &= \frac{\vec F} m &\qquad
+    \vec E                        &= \frac{\vec F} q &\qquad
+    \vec B                        &= \frac{\vec F}{q \vec v} \\[1em]
+    \tikzmarknode{phiVgrav}{\Phi} &= \frac W m        &
+    V                             &= \frac W q        &
+    ?                             &= \frac W {q \vec v}
+  \end{alignedat}
+\]
+
+\begin{tikzpicture}[remember picture, overlay]
+  \node[
+    font=\footnotesize
+  ] (note) at ([xshift=-2em,yshift=-2em]phiVgrav)
+  {Or $V_\text{grav}$};
+  \draw[->, semithick] (note.north) -- (phiVgrav.south west);
+\end{tikzpicture}
+
+\wavyseparator
+
+\[
+  \begin{aligned}
+    W &= \vec F \cdot \vec s \\
+    W &= \abs*{\vec F}\abs*{\vec s}\cos\theta
+  \end{aligned}
+\]
+
+\wavyseparator
+
+Magnetic fields can cause circular motion!
+
+\begin{center}
+  \input{diagrams/magfield.tex}
+\end{center}
+
+The forces involved are the magnetic force and the centripetal force:
+
+\[
+  \begin{alignedat}{2}
+    \vec F_B &= q \vec v \cdot \vec B &\qquad
+    \vec F_{cr} &= \frac{m \vec{v}^{\,2}} r
+  \end{alignedat}
+\]
+
+Equating the magnetic force to the centripetal force, we can solve for the radius of the circular path:
+
+\[
+  \begin{aligned}
+    q \vec v \cdot \vec B &= \frac{m \vec{v}^{\,2}} r \\
+    q \vec B &= \frac{m \vec v} r \\
+    r &= \frac{m \vec v}{q \vec B} \\
+    r &= \frac{\vec p}{q \vec B}
+  \end{aligned}
+\]
+
+\wavyseparator
+
+Magnetic flux through an area $A$ in a magnetic field $B$ is given by:
+
+\[
+  \begin{aligned}
+    \Phi &= \vec B \cdot \vec A \\
+    \Phi &= \abs*{\vec B}\abs*{\vec A}\cos\theta
+  \end{aligned}
+\]
+
+Where $\Phi$ is in \href{https://wikipedia.org/wiki/Weber_(unit)}{webers}, \unit{\weber}, or \si{\tesla\metre\squared}, since $B$ is in teslas and $A$ is in square metres.
+
+% https://steeven9.github.io/USI-LaTeX/html/math_graph.html
+% https://tex.stackexchange.com/a/253040
+
+\end{document}
