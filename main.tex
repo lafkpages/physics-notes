@@ -203,6 +203,33 @@ More magnetic flux stuff:
   \input{diagrams/magfield-induction.tex}
 \end{center}
 
+Or we can have induction with a rotating coil in a magnetic field:
+
+\begin{center}
+  TODO: diagram
+\end{center}
+
+Here, e.m.f. is given by:
+
+\[
+  \begin{aligned}
+    V &= \dv t [N\Phi] \\
+    V &= N \dv{\Phi}{t} \\
+    V &= N \dv t (\vec B \cdot \vec A) \\
+    V &= N \dv t (\abs*{\vec B}\abs*{\vec A}\cos\theta)
+  \end{aligned}
+\]
+
+Using $A = \abs*{\vec A}$ and $B = \abs*{\vec B}$ for simplicity:
+
+\[
+  \begin{aligned}
+    V &= NBA \dv t [\cos\theta] \\
+    V &= NBA \dv t [\cos\omega t] \\
+    V &= -NBA \omega \sin(\omega t)
+  \end{aligned}
+\]
+
 % https://steeven9.github.io/USI-LaTeX/html/math_graph.html
 % https://tex.stackexchange.com/a/253040
 
