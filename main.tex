@@ -72,9 +72,10 @@
   BFieldLine/.default=0.5,
   pics/Bin/.style={
     code={
-      \def\R{0.12}
-      \draw[pic actions,Bcol,line width=0.6] % ,thick
-      (0,0) circle (\R) (-135:.7*\R) -- (45:.7*\R) (-45:.7*\R) -- (135:.7*\R);
+      \def\R{0.10}
+      \draw[pic actions,Bcol,line width=0.6]
+      (-135:\R) -- (45:\R)
+      (-45:\R) -- (135:\R);
   }},
 }
 
