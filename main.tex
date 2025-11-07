@@ -37,6 +37,9 @@
 % For arrow note
 \usetikzlibrary{tikzmark,positioning}
 
+% Arrows
+\usetikzlibrary{arrows.meta}
+
 % Command for adding notes in the margin depending on single or double column layout
 \makeatletter
 \newcommand{\columnnote}[1]{%
@@ -208,7 +211,7 @@ More magnetic flux stuff:
 Or we can have induction with a rotating coil in a magnetic field:
 
 \begin{center}
-  TODO: diagram
+  \input{diagrams/magfield-rotating-coil.tex}
 \end{center}
 
 Here, e.m.f. is given by:

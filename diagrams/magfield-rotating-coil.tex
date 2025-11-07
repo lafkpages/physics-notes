@@ -1,0 +1,55 @@
+\begin{tikzpicture}[x=1cm,y=1cm]
+  %--------------------------------------------
+  % Styles
+  %--------------------------------------------
+  \tikzset{
+    Bfield/.style={thick, -{Latex[length=3mm]}, blue!70!black},
+    coil/.style={very thick, black},
+    normalvec/.style={-Latex, thick, teal!70!black},
+    rotarrow/.style={thick, postaction={decorate},
+    decoration={markings, mark=at position 0.75 with {\arrow{Latex}}}}
+  }
+
+  %--------------------------------------------
+  % Parameters and key points
+  %--------------------------------------------
+  \def\alpha{35}     % coil orientation angle (degrees from +x)
+  \def\L{1.4}        % half-length of the coil line segment
+  \coordinate (C) at (2,0); % center of rotation / center of coil
+
+  %--------------------------------------------
+  % Uniform magnetic field (left-to-right arrows)
+  %--------------------------------------------
+  % A light rectangle to suggest the uniform-field region
+  \draw[rounded corners=2pt, gray!30] (-4,-2) rectangle (0,2);
+
+  % Several horizontal arrows representing B (left -> right)
+  \foreach \y in {-1.5,-0.75,0,0.75,1.5}{
+    \draw[Bfield] (-3.7,\y) -- (-0.3,\y);
+  }
+
+  % Label for the magnetic field B
+  \node[blue!70!black, anchor=south west] at (-3.7,2) {$\mathbf{B}$};
+
+  %--------------------------------------------
+  % Coil as a straight line (to the right of the B-field arrows)
+  %--------------------------------------------
+  \coordinate (P1) at ($(C)+(\alpha:\L)$);
+  \coordinate (P2) at ($(C)+(\alpha+180:\L)$);
+  \draw[coil] (P2) -- (P1);
+
+  %--------------------------------------------
+  % Normal vector to the coil (labeled A)
+  %--------------------------------------------
+  \draw[normalvec] (C) -- ++(\alpha+90:1.1)
+  node[anchor=south east, xshift=1pt] {$\mathbf{A}$};
+
+  %--------------------------------------------
+  % Rotation of the coil: circular arrow labeled omega
+  %--------------------------------------------
+  \draw[rotarrow] (C) circle[radius=1.6];
+  \node[anchor=south] at ($(C)+(120:1.9)$) {$\omega$};
+
+  % Optional: indicate the rotation axis
+  \fill (C) circle[radius=1.2pt];
+\end{tikzpicture}
