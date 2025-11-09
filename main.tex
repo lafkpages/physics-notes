@@ -236,6 +236,38 @@ Using $A = \abs*{\vec A}$ and $B = \abs*{\vec B}$ for simplicity:
   \end{aligned}
 \]
 
+\clearpage
+\appendix
+\section{List of Equations}
+
+\subsection{Waves}
+
+\begin{itemize}
+  \item \(v = \lambda f\)
+  \item \(
+      v^2 = \frac{
+        \tikzmarknode{T}{T}
+      }{
+        \tikzmarknode{mu}{\mu}
+      }
+    \) in a uniform string/rope
+\end{itemize}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \node[
+    font=\footnotesize
+  ] (note) at ([xshift=5em,yshift=1.5em]T)
+  {Force of tension};
+  \draw[->, semithick] (note.south west) -- (T.north east);
+
+  \node[
+    font=\footnotesize,
+    align=center
+  ] (note) at ([xshift=3em,yshift=-2.5em]mu)
+  {Linear density\\in \unit{\kg\per\metre}};
+  \draw[->, semithick] (note.north) -- (mu.south east);
+\end{tikzpicture}
+
 % https://steeven9.github.io/USI-LaTeX/html/math_graph.html
 % https://tex.stackexchange.com/a/253040
 
