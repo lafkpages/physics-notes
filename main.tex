@@ -69,12 +69,12 @@
 \tikzstyle{charge+}=[very thin,draw=black,top color=red!50,bottom color=red!90!black,shading angle=20,circle,inner sep=0.5]
 \tikzstyle{charge-}=[very thin,draw=black,top color=blue!50,bottom color=blue!80,shading angle=20,circle,inner sep=0.5]
 \tikzstyle{vector}=[->,thick,veccol]
-\tikzset{
+\tikzset{%
   BFieldLine/.style={thick,Bcol,decoration={markings,mark=at position #1 with {\arrow{latex}}},
   postaction={decorate}},
   BFieldLine/.default=0.5,
-  pics/Bin/.style={
-    code={
+  pics/Bin/.style={%
+    code={%
       \def\R{0.10}
       \draw[pic actions,Bcol,line width=0.6]
       (-135:\R) -- (45:\R)
@@ -180,7 +180,7 @@ Equating the magnetic force to the centripetal force, we can solve for the radiu
 
 \wavyseparator
 
-Magnetic flux through an area $A$ in a magnetic field $B$ is given by:
+Magnetic flux through an area \(A\) in a magnetic field \(B\) is given by:
 
 \[
   \begin{aligned}
@@ -189,7 +189,7 @@ Magnetic flux through an area $A$ in a magnetic field $B$ is given by:
   \end{aligned}
 \]
 
-Where $\Phi$ is in \href{https://wikipedia.org/wiki/Weber_(unit)}{webers}, \unit{\weber}, or \si{\tesla\metre\squared}, since $B$ is in \href{https://wikipedia.org/wiki/Tesla_(unit)}{teslas} and $A$ is in square metres.
+Where \(\Phi\) is in \href{https://wikipedia.org/wiki/Weber_(unit)}{webers}, \unit{\weber}, or \si{\tesla\metre\squared}, since \(B\) is in \href{https://wikipedia.org/wiki/Tesla_(unit)}{teslas} and \(A\) is in square metres.
 
 \wavyseparator
 
@@ -202,7 +202,7 @@ More magnetic flux stuff:
   \end{aligned}
 \]
 
-\say{The rate of change of flux linkage through a coil gives the induced e.m.f. across the coil.}
+\say{The rate of change of flux linkage through a coil gives the induced e.m.f.\ across the coil.}
 
 \begin{center}
   \input{diagrams/magfield-induction.tex}
@@ -214,7 +214,7 @@ Or we can have induction with a rotating coil in a magnetic field:
   \input{diagrams/magfield-rotating-coil.tex}
 \end{center}
 
-Here, e.m.f. is given by:
+Here, e.m.f.\ is given by:
 
 \[
   \begin{aligned}
@@ -225,7 +225,7 @@ Here, e.m.f. is given by:
   \end{aligned}
 \]
 
-Using $A = \abs*{\vec A}$ and $B = \abs*{\vec B}$ for simplicity:
+Using \(A = \abs*{\vec A}\) and \(B = \abs*{\vec B}\) for simplicity:
 
 \[
   \begin{aligned}
