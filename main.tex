@@ -24,6 +24,8 @@
 }
 
 \usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
 
 % For \wavyseparator
 \usetikzlibrary{decorations.pathmorphing}
@@ -235,6 +237,71 @@ Using \(A = \abs*{\vec A}\) and \(B = \abs*{\vec B}\) for simplicity:
     V &= -NBA \omega \sin(\omega t)
   \end{aligned}
 \]
+
+\wavyseparator
+
+\begin{center}
+  \begin{tikzpicture}
+    \node (B) {$\vec B$};
+    \node[above=2em of B] (IL) {$\dfrac{\vec F}{IL}$};
+    \node[below left=1.4em and 2em of B] (qv) {$\dfrac{\vec F}{q\vec v}$};
+    \node[below right=1.4em and 2em of B] (flux) {$\dfrac{\Phi}{\vec A}$};
+    \draw[vector] (B) -- (IL);
+    \draw[vector] (B) -- (qv);
+    \draw[vector] (B) -- (flux);
+  \end{tikzpicture}
+\end{center}
+
+Therefore,
+
+\[
+  \begin{aligned}
+    \vec F &= \vec B IL \\
+    \vec F &= q \vec v \cdot \vec B
+  \end{aligned}
+\]
+
+\wavyseparator
+
+\begin{tikzpicture}
+  \begin{axis}[
+      xmax=5, xmin=0,
+      ymax=5, ymin=0,
+      axis x line=middle,
+      axis y line=middle,
+      samples=100,
+      xtick=\empty,
+      ytick=\empty,
+      xlabel={$A$},
+      ylabel={$B$}
+    ]
+    \addplot[domain=0.2:5]{3/x};
+    \addplot[domain=1:4, draw=none, name path=curve]{3/x};
+    \addplot[draw=none, name path=base] coordinates {(1,0) (4,0)};
+    \addplot[fill=Bcol!40, fill opacity=0.4] fill between[of=curve and base];
+    \node[text=Bcol!80!black] at (axis cs:2.5,0.9) {$\Phi$};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+      xmax=5, xmin=0,
+      ymax=5, ymin=0,
+      axis x line=middle,
+      axis y line=middle,
+      samples=100,
+      xtick=\empty,
+      ytick=\empty,
+      xlabel={$t$},
+      ylabel={$\Phi$}
+    ]
+    \addplot[domain=0.2:5]{4/x};
+    \addplot[veccol, thick, domain=1.5:4.5]{8/3 - (4/9)*x};
+    \addplot[mark=*] coordinates {(3,4/3)};
+    \node[text=veccol!90!black, anchor=west]
+    at (axis cs:2,1) {$\dv{\Phi}{t} = \mathcal E$};
+  \end{axis}
+\end{tikzpicture}
 
 \clearpage
 \appendix
