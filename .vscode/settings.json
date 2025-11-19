@@ -4,5 +4,10 @@
   "explorer.fileNesting.patterns": {
     "main.log": "main.a*, main.f*, main.o*, main.s*"
   },
-  "cSpell.words": ["Edexcel", "teslas"]
+  "cSpell.words": ["Edexcel", "teslas"],
+
+  // LaCheck does not like TikZ diagrams which are extensively
+  // used here, and it does not support suppressing individual
+  // warnings, so disable it.
+  "latex-workshop.linting.lacheck.enabled": false
 }
