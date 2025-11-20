@@ -1,0 +1,84 @@
+% raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22id%22:%223C3B2520-4AD1-4099-B3D7-F9E96AA861D3%22%7D
+
+\begin{tikzpicture}
+  % --- Definitions ---
+  \def\coreW{6}      % Total Width
+  \def\coreH{4}      % Total Height
+  \def\thick{1.2}    % Iron thickness (Leg width)
+  \def\holeYmin{1.2} % Bottom of hole (\thick)
+  \def\holeYmax{2.8} % Top of hole (\coreH - \thick)
+
+  % --- 1. Soft Iron Core ---
+  % Drawn with even odd rule to create the hole
+  \draw[fill=gray!20, draw=black, thick, rounded corners=0.2cm, even odd rule]
+  (0,0) rectangle (\coreW,\coreH)
+  (\thick,\thick) rectangle (\coreW-\thick, \coreH-\thick);
+
+  \node[text=gray!50!black, font=\small\sf] at (\coreW/2, \coreH/2) {Soft Iron Core};
+
+  % --- 2. Magnetic Flux (Phi) ---
+  % Dashed path through the center of the core
+  \draw[Bcol, very thick, dashed, rounded corners=0.4cm,
+    decoration={markings, mark=at position 0.15 with {\arrow{latex}}, mark=at position 0.65 with {\arrow{latex}}},
+  postaction={decorate}]
+  (\thick/2, \thick/2) rectangle (\coreW-\thick/2, \coreH-\thick/2);
+
+  \node[Bcol, fill=gray!20, inner sep=1pt] at (\coreW/2, \coreH-\thick/2) {$\Phi$};
+
+  % --- 3. Primary Coil (Left Side) ---
+  % Source Circuit
+  \coordinate (P_top) at (0, \holeYmax);
+  \coordinate (P_bot) at (0, \holeYmin);
+  \coordinate (P_src) at (-1.5, 2);
+
+  % Wires from source to coil bounds
+  \draw[thick, orange!70!black] (P_src) ++(0, 0.3) -- (-1.5, \holeYmax) -- (-0.1, \holeYmax);
+  \draw[thick, orange!70!black] (P_src) ++(0,-0.3) -- (-1.5, \holeYmin) -- (-0.1, \holeYmin);
+
+  % Source Symbol (AC)
+  \draw[thick, fill=white] (P_src) circle (0.3);
+  \draw[thick] (P_src) ++(-0.15,0) sin ++(0.075,0.1) cos ++(0.075,-0.1) sin ++(0.075,-0.1) cos ++(0.075,0.1);
+  \node[left=0.35cm] at (P_src) {$V_p$};
+
+  % Primary Windings (fewer turns, wider spacing)
+  % Constrained strictly between \holeYmin and \holeYmax
+  \foreach \y in {1.35, 1.7, 2.05, 2.4} {%
+    % Wire front arc: wider curve to look like it wraps around
+    \draw[line width=2pt, orange!80!black] (-0.15, \y) .. controls (\thick/2, \y-0.3) .. (\thick+0.15, \y);
+  }
+  % Vertical schematic connector on the outside
+  \draw[thick, orange!70!black] (-0.15, 1.35) -- (-0.15, 2.4);
+
+  % Labels Primary
+  \node[anchor=east] at (-0.3, \coreH/2) {$N_p$};
+  \draw[current, Icol] (-1.2, \holeYmax+0.2) -- (-0.5, \holeYmax+0.2) node[midway, above] {$I_p$};
+
+  % --- 4. Secondary Coil (Right Side) ---
+  % Load Circuit
+  \coordinate (S_top) at (\coreW, \holeYmax);
+  \coordinate (S_bot) at (\coreW, \holeYmin);
+  \coordinate (S_load) at (\coreW+1.5, 2);
+
+  % Wires from coil to load
+  \draw[thick, orange!70!black] (\coreW+0.1, \holeYmax) -- (\coreW+1.5, \holeYmax) -- (S_load) ++(0, 0.3);
+  \draw[thick, orange!70!black] (\coreW+0.1, \holeYmin) -- (\coreW+1.5, \holeYmin) -- (S_load) ++(0,-0.3);
+
+  % Load Symbol (Voltmeter)
+  \draw[thick, fill=white] (S_load) circle (0.3);
+  \node at (S_load) {V};
+  \node[right=0.35cm] at (S_load) {$V_s$};
+
+  % Secondary Windings (more turns, tighter spacing)
+  % Constrained strictly between \holeYmin and \holeYmax
+  \foreach \y in {1.3, 1.55, 1.8, 2.05, 2.3, 2.55} {%
+    % Wire front arc
+    \draw[line width=2pt, orange!80!black] (\coreW-\thick-0.15, \y) .. controls (\coreW-\thick/2, \y-0.25) .. (\coreW+0.15, \y);
+  }
+  % Vertical schematic connector on the outside
+  \draw[thick, orange!70!black] (\coreW+0.15, 1.3) -- (\coreW+0.15, 2.55);
+
+  % Labels Secondary
+  \node[anchor=west] at (\coreW+0.3, \coreH/2) {$N_s$};
+  \draw[current, Icol] (\coreW+0.5, \holeYmax+0.2) -- (\coreW+1.2, \holeYmax+0.2) node[midway, above] {$I_s$};
+
+\end{tikzpicture}
