@@ -218,9 +218,14 @@ Or we can have induction with a rotating coil in a magnetic field:
 
 Here, e.m.f.\ is given by:
 
+\begin{equation}\label{eq:induced-emf}
+  \mathcal E = \dv t [N\Phi]
+\end{equation}
+
+Taking out the constants, rearranging and substituting:
+
 \[
   \begin{aligned}
-    \mathcal E &= \dv t [N\Phi] \\
     \mathcal E &= N \dv{\Phi}{t} \\
     \mathcal E &= N \dv t (\vec B \cdot \vec A) \\
     \mathcal E &= N \dv t (\abs*{\vec B}\abs*{\vec A}\cos\theta)
@@ -313,11 +318,23 @@ Ratio of primary to secondary e.m.f.s is equal to the ratio of the number of tur
   \frac{\mathcal{E}_p}{\mathcal{E}_s} = \frac{N_p}{N_s}
 \end{equation}
 
+This equation can be derived using the following diagram of a transformer and the definition of e.m.f.\ seen in equation~\ref{eq:induced-emf}:
+
 \begin{center}
   \input{diagrams/transformer.tex}
 \end{center}
 
-TODO: add derivation for above equation \ref{eq:transformer-ratios}.
+From the diagram, we can see that the magnetic flux \(\Phi\) through each coil is the same. Therefore, we can write the e.m.f.s in each coil as:
+
+\begin{equation}
+  \mathcal{E}_p = -N_p \frac{d\Phi}{dt}, \quad \mathcal{E}_s = -N_s \frac{d\Phi}{dt}
+\end{equation}
+
+Taking the ratio of these two equations gives us equation~\ref{eq:transformer-ratios}:
+
+\begin{equation*}
+  \frac{\mathcal{E}_p}{\mathcal{E}_s} = \frac{N_p}{N_s} \tag{\ref{eq:transformer-ratios} revisited}
+\end{equation*}
 
 \clearpage
 \appendix
