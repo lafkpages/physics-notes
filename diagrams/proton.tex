@@ -1,0 +1,44 @@
+% raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22id%22:%223C3B2520-4AD1-4099-B3D7-F9E96AA861D3%22%7D
+
+\begin{tikzpicture}
+  % --- Definitions ---
+  \def\R{2.2} % Radius of the proton shell
+
+  % --- 1. The Proton Confinement (Bag) ---
+  % A spherical shading to represent the particle boundary
+  \shade[ball color=gray!15, opacity=0.3] (0,0) circle (\R);
+  \draw[dashed, thick, gray!80] (0,0) circle (\R);
+
+  % --- 2. Quark Positions ---
+  % Equilateral triangle arrangement
+  \coordinate (q1) at (0, 1.1);     % Top (Up)
+  \coordinate (q2) at (1.2, -0.7);  % Bottom Right (Up)
+  \coordinate (q3) at (-1.2, -0.7); % Bottom Left (Down)
+
+  % --- 3. Gluons (Strong Force) ---
+  % Drawn as springs connecting the quarks
+  \begin{scope}[decoration={coil, aspect=0.4, segment length=4pt, amplitude=3pt, pre length=5pt, post length=5pt}]
+    \draw[decorate, thick, gray!60] (q1) -- (q2);
+    \draw[decorate, thick, gray!60] (q2) -- (q3);
+    \draw[decorate, thick, gray!60] (q3) -- (q1);
+  \end{scope}
+
+  % --- 4. Quarks ---
+  % Using Red, Blue, Green to subtly hint at QCD color charge,
+  % though labelled by flavour (u, d).
+
+  % Top Up Quark
+  \node[circle, draw=red!80!black, fill=red!20, very thick, minimum size=1cm] (u1) at (q1) {\large $u$};
+  \node[above=0.3em of u1, text=red!80!black, font=\footnotesize] {$+\frac{2}{3}e$};
+
+  % Right Up Quark
+  \node[circle, draw=blue!80!black, fill=blue!20, very thick, minimum size=1cm] (u2) at (q2) {\large $u$};
+  \node[below right=0.3em of u2, text=blue!80!black, font=\footnotesize] {$+\frac{2}{3}e$};
+
+  % Left Down Quark
+  \node[circle, draw=green!60!black, fill=green!20, very thick, minimum size=1cm] (d1) at (q3) {\large $d$};
+  \node[below left=0.3em of d1, text=green!60!black, font=\footnotesize] {$-\frac{1}{3}e$};
+
+  % --- 5. Labels ---
+  \node[font=\bfseries\large, anchor=north west] at (-\R-0.5, \R+0.5) {Proton $(p^+)$};
+\end{tikzpicture}
