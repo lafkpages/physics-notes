@@ -352,49 +352,7 @@ Taking the ratio of these two equations gives us equation~\ref{eq:transformer-ra
 
 \clearpage
 \appendix
-\section{List of Equations}
-
-\subsection{Waves}
-
-\begin{itemize}
-  \item \(v = \lambda f\)
-  \item \(
-      v^2 = \frac{
-        \tikzmarknode{T}{T}
-      }{
-        \tikzmarknode{mu}{\mu}
-      }
-    \) in a uniform string/rope
-\end{itemize}
-
-\begin{tikzpicture}[remember picture, overlay]
-  \node[
-    font=\footnotesize
-  ] (note) at ([xshift=5em,yshift=1.5em]T)
-  {Force of tension};
-  \draw[->, semithick] (note.south west) -- (T.north east);
-
-  \node[
-    font=\footnotesize,
-    align=center
-  ] (note) at ([xshift=3em,yshift=-2.5em]mu)
-  {Linear density\\in \unit{\kg\per\metre}};
-  \draw[->, semithick] (note.north) -- (mu.south east);
-\end{tikzpicture}
-
-\subsection{Photoelectric Effect}
-
-\begin{itemize}
-  \item \(h = \SI{6.63e-34}{\joule\second}\)
-  \item \(E = hf\)
-  \item \(hf = \phi + \tikzmarknode{Ekmax}{E_{k\text{max}}}\)
-  \item \(V = \frac W Q \iff \tikzmarknode{W}{W} = QV\)
-\end{itemize}
-
-\begin{tikzpicture}[remember picture, overlay]
-  \draw[<->, semithick]
-  (Ekmax.south).. controls +(0,-1em) and +(0,1em).. (W.north);
-\end{tikzpicture}
+\input{list-of-equations.tex}
 
 % https://steeven9.github.io/USI-LaTeX/html/math_graph.html
 % https://tex.stackexchange.com/a/253040
