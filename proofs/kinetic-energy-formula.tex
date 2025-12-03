@@ -1,0 +1,45 @@
+Consider a constant force \(\vec F\) causing a ball of mass \(m\) which is moving at a velocity \(\vec v\) to come to rest over a distance \(\vec s\).
+
+TODO\@: TikZ diagram
+
+Using SUVAT\@:
+
+\begin{equation}
+  v^2 = u^2 + 2as
+\end{equation}
+
+But since it comes to rest, \(v = 0\), and the initial velocity \(u = \abs{\vec v}\). Rearranging for \(a\):
+
+\begin{align}\label{eq:proof-ke-as}
+  0 &= v^2 + 2as \notag \\
+  v^2 &= -2as \notag \\
+  -\frac{v^2}{2} &= as \notag \\
+  as &= -\frac{v^2}{2}
+\end{align}
+
+Since the work done \(W\) by a constant force is given by:
+
+\begin{equation}
+  W = \vec F \cdot \vec s = m \vec a \cdot \vec s
+\end{equation}
+
+We can substitute equation~\ref{eq:proof-ke-as} into this to get something already resembling the kinetic energy formula:
+
+\[
+  \begin{aligned}
+    W &= m \cdot -\frac{v^2}{2} \\
+    W &= -\frac 1 2 mv^2
+  \end{aligned}
+\]
+
+Since the work done \(W\) is equal to the change in kinetic energy, and the particle ends at rest, we have:
+
+\[
+  \begin{aligned}
+    W &= E_{kf} - E_{ki} \\
+    W &= 0 - E_{ki} \\
+    W &= -E_{ki} \\
+    E_{ki} &= -W \\
+    E_{ki} &= \frac 1 2 mv^2
+  \end{aligned}
+\]
