@@ -2,7 +2,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "main.log": "main.a*, main.f*, main.o*, main.s*"
+    "main.log": "main.a*, main.f*, main.o*, main.s*, main.to*"
   },
   "cSpell.words": ["Edexcel", "teslas"],
 
