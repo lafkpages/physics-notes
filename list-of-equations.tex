@@ -28,6 +28,23 @@
   \draw[->, semithick] (note.north) -- (mu.south east);
 \end{tikzpicture}
 
+\vspace{2em}
+
+Interference:
+
+\begin{itemize}
+  \item \( \text{p.d.} = \tikzmarknode{pd-constructive}{n\lambda} \)
+  \item \( \text{p.d.} = \tikzmarknode{pd-destructive}{\left(n + \frac12\right)\lambda} \)
+\end{itemize}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \node[font=\footnotesize, right=1.7em of pd-constructive] (constructive-label) {constructive};
+  \draw[->, semithick] (constructive-label.west) -- ([xshift=0.3em]pd-constructive.east);
+
+  \node[font=\footnotesize, right=1.7em of pd-destructive] (destructive-label) {destructive};
+  \draw[->, semithick] (destructive-label.west) -- ([xshift=0.3em]pd-destructive.east);
+\end{tikzpicture}
+
 \subsection{Photoelectric Effect}
 
 \begin{itemize}
