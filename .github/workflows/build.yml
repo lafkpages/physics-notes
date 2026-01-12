@@ -1,0 +1,32 @@
+name: Build LaTeX PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.tex"
+      - .github/workflows/build.yml
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build PDF (draft mode)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+          # Pass draft option to skip textbook PDF inclusion
+          args: -pdf -interaction=nonstopmode -file-line-error
+          pre_compile: |
+            echo "\PassOptionsToClass{draft}{article}" > draft-preamble.tex
+            cat main.tex >> draft-preamble.tex
+            mv draft-preamble.tex main.tex
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: physics-notes
+          path: main.pdf
