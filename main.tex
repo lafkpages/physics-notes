@@ -15,14 +15,6 @@
 \usepackage{pdfpages}
 \usepackage{dirtytalk}
 
-% Links
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue,
-  urlcolor=cyan,
-}
-
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
@@ -42,6 +34,14 @@
 
 % Arrows
 \usetikzlibrary{arrows.meta}
+
+% Links (load hyperref late to avoid conflicts)
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=cyan,
+}
 
 % Command for adding notes in the margin depending on single or double column layout
 \makeatletter
@@ -65,13 +65,15 @@
 \colorlet{BFcol}{red!60!black}
 \colorlet{veccol}{green!45!black}
 \colorlet{Icol}{blue!70!black}
-\tikzstyle{BField}=[->,very thick,Bcol]
-\tikzstyle{current}=[->,Icol] %thick,
-\tikzstyle{force}=[->,very thick,BFcol]
-\tikzstyle{velocity}=[->,very thick,vcol]
-\tikzstyle{charge+}=[very thin,draw=black,top color=red!50,bottom color=red!90!black,shading angle=20,circle,inner sep=0.5]
-\tikzstyle{charge-}=[very thin,draw=black,top color=blue!50,bottom color=blue!80,shading angle=20,circle,inner sep=0.5]
-\tikzstyle{vector}=[->,thick,veccol]
+\tikzset{
+  BField/.style={->,very thick,Bcol},
+  current/.style={->,Icol},
+  force/.style={->,very thick,BFcol},
+  velocity/.style={->,very thick,vcol},
+  charge+/.style={very thin,draw=black,top color=red!50,bottom color=red!90!black,shading angle=20,circle,inner sep=0.5},
+  charge-/.style={very thin,draw=black,top color=blue!50,bottom color=blue!80,shading angle=20,circle,inner sep=0.5},
+  vector/.style={->,thick,veccol},
+}
 \tikzset{%
   BFieldLine/.style={thick,Bcol,decoration={markings,mark=at position #1 with {\arrow{latex}}},
   postaction={decorate}},
@@ -195,7 +197,7 @@ Magnetic flux through an area \(A\) in a magnetic field \(B\) is given by:
   \end{aligned}
 \]
 
-Where \(\Phi\) is in \href{https://wikipedia.org/wiki/Weber_(unit)}{webers}, \unit{\weber}, or \si{\tesla\metre\squared}, since \(B\) is in \href{https://wikipedia.org/wiki/Tesla_(unit)}{teslas} and \(A\) is in square metres.
+Where \(\Phi\) is in \href{https://wikipedia.org/wiki/Weber_(unit)}{webers}, \unit{\weber}, or \unit{\tesla\metre\squared}, since \(B\) is in \href{https://wikipedia.org/wiki/Tesla_(unit)}{teslas} and \(A\) is in square metres.
 
 \wavyseparator
 
