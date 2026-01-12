@@ -1,4 +1,4 @@
-\documentclass[11pt,twocolumn]{article}
+\documentclass[11pt,twocolumn,draft]{article}
 \usepackage[T1]{fontenc}
 \usepackage[
   paperwidth=21.9cm,
@@ -13,6 +13,7 @@
 \usepackage{marginnote}
 \usepackage{physics}
 \usepackage{pdfpages}
+\usepackage{ifdraft}
 \usepackage{dirtytalk}
 
 \usepackage{tikz}
@@ -365,10 +366,13 @@ Taking the ratio of these two equations gives us equation~\ref{eq:transformer-ra
 % https://tex.stackexchange.com/a/253040
 
 \section{Textbook}
+\ifdraft{
+  The textbook pages are omitted in draft mode.
+}{
+  The following pages are from the Pearson Edexcel International A Level Physics Student Book 2 by Miles Hudson, and are provided here for reference. Note that some pages at the start and end are not included due to irrelevancy.
 
-The following pages are from the Pearson Edexcel International A Level Physics Student Book 2 by Miles Hudson, and are provided here for reference. Note that some pages at the start and end are not included due to irrelevancy.
-
-\onecolumn
-% \includepdf[pages=4-237]{textbook.pdf}
+  \onecolumn
+  \includepdf[pages=4-237]{textbook.pdf}
+}
 
 \end{document}
