@@ -1,0 +1,57 @@
+During uniform circular motion, an object moves in a circle of radius \(r\) at a constant speed \(v\) and constant angular velocity \(\omega\). Although the speed is constant, the direction of the velocity vector is continuously changing, which means the object is accelerating.
+
+The equation for the magnitude of the centripetal acceleration \(a\) is given by:
+
+\begin{equation}
+  a = \frac{v^2}{r}
+\end{equation}
+
+Here is a proof of this formula.
+
+TODO: TikZ diagram
+
+By definition,
+
+\begin{equation}
+  a = \lim_{\Delta t \to 0} \frac{\Delta v}{\Delta t}
+\end{equation}
+
+Noticing that since there is no change in the y-component of \(v_i\) and \(v_f\), the acceleration in the y-direction is zero. Therefore, we only need to consider the x-component of the velocity. Thus:
+
+\begin{equation*}
+  a = a_x = \lim_{\Delta t \to 0} \frac{\Delta v_x}{\Delta t} = \lim_{\Delta t \to 0} \frac{v_{fx} - v_{ix}}{\Delta t}
+\end{equation*}
+
+By trigonometry, we can see that:
+
+\begin{align*}
+  v_{ix} &= v \sin\theta \\
+  v_{fx} &= -v \sin\theta
+\end{align*}
+
+And from the definition of angular velocity, we know that:
+
+\begin{align*}
+  \omega &= \frac{\Delta \theta}{\Delta t} \\
+  \omega &= \frac{2\theta}{\Delta t} \\
+  \Delta t &= \frac{2\theta}{\omega}
+\end{align*}
+
+Now, work out the limit:
+
+\begin{align*}
+  a &= \lim_{\Delta t \to 0} \frac{-v \sin\theta - v \sin\theta}{\Delta t} \\
+  a &= \lim_{\Delta t \to 0} -\frac{2v \sin\theta}{\Delta t} \\
+  a &= -\lim_{\theta \to 0} \frac{2v\omega \sin\theta}{2\theta} \\
+  a &= -\lim_{\theta \to 0} v\omega \cdot \frac{\sin\theta}\theta \\
+  a &= -v\omega \cdot \lim_{\theta \to 0} \frac{\sin\theta}\theta \\
+  a &= -v\omega \cdot 1 \\
+  a &= -v\omega \cdot 1
+\end{align*}
+
+Now finally, since \(v = r\omega\), we can substitute for \(\omega\):
+
+\begin{align*}
+  a &= -v \cdot \frac{v}{r} \\
+  a &= -\frac{v^2}{r}
+\end{align*}
