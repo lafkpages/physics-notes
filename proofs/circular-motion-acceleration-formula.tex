@@ -34,6 +34,7 @@ Here is a proof of this formula, with help from a diagram.
   \end{tikzpicture}
 \end{center}
 
+% Macros for convenience
 \def\rv{{\color{red}v}}
 \def\rvf{{\color{red}v_f}}
 \def\rvfx{{\color{red}v_{fx}}}
@@ -42,7 +43,7 @@ Here is a proof of this formula, with help from a diagram.
 \def\rvx{{\color{red}v_x}}
 \def\bt{{\color{blue}\theta}}
 \def\bdt{{\color{blue}\Delta\theta}}
-\def\b2t{{\color{cyan}2\theta}}
+\def\btt{{\color{cyan}2\theta}}
 
 By definition,
 
@@ -67,8 +68,8 @@ And from the definition of angular velocity, we know that:
 
 \begin{align*}
   \omega &= \frac{\bdt}{\Delta t} \\
-  \omega &= \frac{\b2t}{\Delta t} \\
-  \Delta t &= \frac{\b2t}{\omega}
+  \omega &= \frac{\btt}{\Delta t} \\
+  \Delta t &= \frac{\btt}{\omega}
 \end{align*}
 
 Now, work out the limit:
@@ -76,7 +77,7 @@ Now, work out the limit:
 \begin{align*}
   a &= \lim_{\Delta t \to 0} \frac{-\rv \sin\bt - \rv \sin\bt}{\Delta t} \\
   a &= \lim_{\Delta t \to 0} -\frac{2\rv \sin\bt}{\Delta t} \\
-  a &= -\lim_{\bt \to 0} \frac{2\rv\omega \sin\bt}{\b2t} \\
+  a &= -\lim_{\bt \to 0} \frac{2\rv\omega \sin\bt}{\btt} \\
   a &= -\lim_{\bt \to 0} \rv\omega \cdot \frac{\sin\bt}\bt \\
   a &= -\rv\omega \cdot \lim_{\bt \to 0} \frac{\sin\bt}\bt \\
   a &= -\rv\omega \cdot 1 \\
@@ -91,3 +92,14 @@ Now finally, since \(v = r\omega\), we can substitute for \(\omega\):
 \end{align*}
 
 Now for completeness, this is actually the acceleration in the x-direction. In this case, the x-direction is towards the center of the circle, so the negative sign indicates that the acceleration is centripetal. But the magnitude of the acceleration is of course positive.
+
+% Un-define macros
+\let\rv\undefined
+\let\rvf\undefined
+\let\rvfx\undefined
+\let\rvi\undefined
+\let\rvix\undefined
+\let\rvx\undefined
+\let\bt\undefined
+\let\bdt\undefined
+\let\btt\undefined
