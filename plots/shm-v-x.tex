@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      xmin=-5, xmax=5, ymin=-5, ymax=5,
+      axis x line=middle, axis y line=middle,
+      xlabel=$\vec x$, ylabel=$\vec v$,
+      xtick=\empty, ytick=\empty,
+      extra x ticks={-4,4}, extra x tick labels={$-A$,$A$},
+      extra y ticks={-4,4}, extra y tick labels={$-A\omega$,$A\omega$}
+    ]
+    \addplot[domain=0:360, samples=200] ({4*cos(x)},{4*sin(x)});
+  \end{axis}
+\end{tikzpicture}

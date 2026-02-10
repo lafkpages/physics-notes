@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      xmin=-5, xmax=5, ymin=-5, ymax=5,
+      axis x line=middle, axis y line=middle,
+      xlabel=$\vec x$, ylabel=$\vec a$,
+      xtick=\empty, ytick=\empty,
+      extra x ticks={-4,4}, extra x tick labels={$-A$,$A$},
+      extra y ticks={-4,4}, extra y tick labels={$-A\omega^2$,$A\omega^2$}
+    ]
+    \addplot[domain=-4:4]{-x};
+  \end{axis}
+\end{tikzpicture}
