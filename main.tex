@@ -99,7 +99,8 @@
 \renewcommand\thesubsection{\thesection\Alph{subsection}}
 
 % Customise subsection titles to show textbook page number in margin
-\newcommand\mysubsection[2]{\subsection[#1]{#1\protect\columnnote{Textbook page \hyperlink{page.\number\numexpr#2+12\relax}{#2}}}}
+\newcommand\textbookpage[1]{\hyperlink{page.\number\numexpr#1+12\relax}{#1}}
+\newcommand\mysubsection[2]{\subsection[#1]{#1\protect\columnnote{Textbook page \textbookpage{#2}}}}
 
 \newcommand\seealso{\paragraph{See also}}
 
@@ -400,6 +401,18 @@ It in fact works for any sinusoidal function.
 
 \input{plots/shm-a-x.tex}
 \input{plots/shm-v-x.tex}
+
+Page \textbookpage{154} checkpoint 3:
+
+\begin{align*}
+  T &= 2\pi \sqrt{\frac l g} \\
+  \frac T {2\pi} &= \sqrt{\frac l g} \\
+  \left(\frac T {2\pi}\right)^2 &= \frac l g \\
+  l &= g \left(\frac T {2\pi}\right)^2 \\
+  l &= \frac{g T^2}{4\pi^2} \\
+  l &\approx \frac{g (2.5)^2}{4\pi^2} \\
+  l &\approx \SI{1.55}{\metre}
+\end{align*}
 
 \clearpage
 \appendix
