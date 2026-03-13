@@ -1,4 +1,4 @@
-\documentclass[11pt,twocolumn,draft]{article}
+\documentclass[11pt,draft]{article}
 \usepackage[T1]{fontenc}
 \usepackage[
   paperwidth=21.9cm,
@@ -44,21 +44,10 @@
   urlcolor=cyan,
 }
 
-% Command for adding notes in the margin depending on single or double column layout
+% Command for adding notes in the margin
 \makeatletter
 \newcommand{\columnnote}[1]{%
-  \if@twocolumn
-  \if@firstcolumn
-  \reversemarginpar
   \marginnote{\small\emph{#1}}%
-  \normalmarginpar
-  \else
-  \normalmarginpar
-  \marginnote{\small\emph{#1}}%
-  \fi
-  \else
-  \marginnote{\small\emph{#1}}%
-  \fi
 }
 \makeatother
 
@@ -123,7 +112,7 @@
 \setcounter{subsection}{1}
 \mysubsection{Circular Motion}{14}
 
-\subsubsection{Proof of \(a = -\frac{v^2}{r}\) during Uniform Circular Motion}
+\subsubsection{Proof of acceleration formula during Uniform Circular Motion}
 
 \input{proofs/circular-motion-acceleration-formula.tex}
 
@@ -439,7 +428,6 @@ Page \textbookpage{154} checkpoint 3:
 }{
   The following pages are from the Pearson Edexcel International A Level Physics Student Book 2 by Miles Hudson, and are provided here for reference. Note that some pages at the start and end are not included due to irrelevancy.
 
-  \onecolumn
   \includepdf[pages=4-237]{textbook.pdf}
 }
 
