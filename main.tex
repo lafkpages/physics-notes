@@ -15,6 +15,7 @@
 \usepackage{pdfpages}
 \usepackage{ifdraft}
 \usepackage{dirtytalk}
+\usepackage{enumitem}
 
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -419,6 +420,48 @@ Page \textbookpage{154} checkpoint 3:
 
 \section{Astrophysics and Cosmology}
 \mysubsection{Gravitational Fields}{168}
+
+Given the following properties of the Earth:
+
+\begin{align}
+  m = 5.9 \times 10^{24} \text{ kg} \\
+  r = 6.371 \times 10^6 \text{ m}
+\end{align}
+
+\noindent\textbf{Exam Practice 11A p.\ \textbookpage{177}, Question 3}
+
+The Orion spacecraft consists of a capsule (mass = \SI{8913}{\kilogram})
+and a service module (mass = \SI{12337}{\kilogram}) and is designed
+to carry four astronauts (mass \SI{80.0}{\kilogram} each). Calculate the
+minimum energy needed to move the fully manned spacecraft
+completely outside the influence of the gravitational field of
+the Earth.
+
+\begin{itemize}
+  \item Mass of the Earth = \SI{6.00e24}{\kilogram}
+  \item Radius of the Earth = \SI{6.40e6}{\metre}
+  \item \(G\) = \SI{6.67e-11}{\newton\metre\squared\per\kilogram\squared}
+\end{itemize}
+
+\begin{enumerate}[label=\textbf{\Alph*}]
+  \item \SI{2.12e3}{\joule}
+  \item \SI{6.30e6}{\joule}
+  \item \SI{1.34e12}{\joule}
+  \item \SI{1.36e12}{\joule}
+\end{enumerate}
+
+Total mass \(m = 8913 + 12337 + 4 \times 80 = \SI{21570}{\kilogram}\).
+
+\begin{align*}
+  E_p &= \frac{GMm}{r} \\
+  &= \frac{(6.67 \times 10^{-11})(6.00 \times 10^{24})(21570)}{6.40 \times 10^6} \\
+  &= \SI{1.35e12}{\joule}
+\end{align*}
+
+Hence the answer is C (closest).
+
+\chapter{Other working out}
+\input{qna.tex}
 
 \clearpage
 \appendix
